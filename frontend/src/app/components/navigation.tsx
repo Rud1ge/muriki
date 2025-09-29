@@ -1,6 +1,5 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@heroui/react";
-import {BookOpen, Cat, LaptopMinimal} from "lucide-react"
-
+import {Button, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@heroui/react";
+import {BookOpen, Cat, ContactRound, LaptopMinimal} from "lucide-react"
 
 const MurikiLogo = () => {
     return (
@@ -17,43 +16,44 @@ const MurikiLogo = () => {
 
 export function Navigation() {
     return (
-        <div className="flex w-full items-center justify-between">
-            <Navbar shouldHideOnScroll isBordered>
-                <NavbarBrand>
-                    <MurikiLogo/>
-                    <p className="font-bold text-inherit">MURIKI</p>
-                </NavbarBrand>
-                <NavbarContent
-                    // TODO: Хочется сделать абсоютный центр чище
-                    className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <NavbarItem isActive>
-                        <Link color="foreground" className="flex items-center gap-1" href="#">
-                            О нас <BookOpen/>
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link color="foreground" className="flex items-center gap-1" href="#">
-                            Кто <span className="text-pink-300 flex items-center gap-1">она?<Cat/></span>
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link color="foreground" className="flex items-center gap-1" href="#">
-                            Кто <span
-                            className="text-blue-300 flex items-center gap-1">он?<LaptopMinimal/></span>
-                        </Link>
-                    </NavbarItem>
-                </NavbarContent>
-                <NavbarContent justify="end">
-                    <NavbarItem className="hidden lg:flex">
-                        <Link href="#">Войти</Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Button as={Link} color="primary" href="#" variant="flat">
-                            Присоединиться
-                        </Button>
-                    </NavbarItem>
-                </NavbarContent>
-            </Navbar>
-        </div>
+        <Navbar shouldHideOnScroll>
+            <NavbarBrand>
+                <MurikiLogo/>
+                <p className="font-bold text-inherit">MURIKI</p>
+            </NavbarBrand>
+            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                <NavbarItem>
+                    <Link color="foreground" className="flex items-center gap-1" href="#">
+                        О нас <BookOpen/>
+                    </Link>
+                </NavbarItem>
+                <NavbarItem isActive>
+                    <Link color="foreground" className="flex items-center gap-1" href="#">
+                        Кто <span className="text-pink-300 flex items-center gap-1">она?<Cat/></span>
+                    </Link>
+                </NavbarItem>
+                <NavbarItem>
+                    <Link color="foreground" className="flex items-center gap-1" href="#">
+                        Кто <span
+                        className="text-blue-300 flex items-center gap-1">он?<LaptopMinimal/></span>
+                    </Link>
+                </NavbarItem>
+                <NavbarItem>
+                    <Link color="foreground" className="flex items-center gap-1" href="#">
+                        Контакты <ContactRound/>
+                    </Link>
+                </NavbarItem>
+            </NavbarContent>
+            <NavbarContent justify="end">
+                <NavbarItem className="hidden lg:flex">
+                    <Link href="#">Login</Link>
+                </NavbarItem>
+                <NavbarItem>
+                    <Button as={Link} color="primary" href="#" variant="flat">
+                        Sign Up
+                    </Button>
+                </NavbarItem>
+            </NavbarContent>
+        </Navbar>
     );
 }
