@@ -23,7 +23,9 @@ export function Navigation() {
                     <MurikiLogo/>
                     <p className="font-bold text-inherit">MURIKI</p>
                 </NavbarBrand>
-                <NavbarContent className="hidden sm:flex gap-12" justify="center">
+                <NavbarContent
+                    // TODO: Хочется сделать абсоютный центр чище
+                    className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                     <NavbarItem isActive>
                         <Link color="foreground" className="flex items-center gap-1" href="#">
                             О нас <BookOpen/>
