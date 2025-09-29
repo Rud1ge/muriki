@@ -1,8 +1,6 @@
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@heroui/react";
-import Confetti from "react-confetti";
-import {BookOpen} from "lucide-react"
-import {Cat} from "lucide-react";
-import {LaptopMinimal} from "lucide-react";
+import {BookOpen, Cat, LaptopMinimal} from "lucide-react"
+
 
 const MurikiLogo = () => {
     return (
@@ -28,18 +26,18 @@ export default function HomePage() {
                 <NavbarContent className="hidden sm:flex gap-12" justify="center">
                     <NavbarItem isActive>
                         <Link color="foreground" className="flex items-center gap-1" href="#">
-                            О нас <BookOpen></BookOpen>
+                            О нас <BookOpen/>
                         </Link>
                     </NavbarItem>
                     <NavbarItem>
                         <Link color="foreground" className="flex items-center gap-1" href="#">
-                            Кто <span className="text-pink-300 flex items-center gap-1">она?<Cat></Cat></span>
+                            Кто <span className="text-pink-300 flex items-center gap-1">она?<Cat/></span>
                         </Link>
                     </NavbarItem>
                     <NavbarItem>
                         <Link color="foreground" className="flex items-center gap-1" href="#">
                             Кто <span
-                            className="text-blue-300 flex items-center gap-1">он?<LaptopMinimal></LaptopMinimal></span>
+                            className="text-blue-300 flex items-center gap-1">он?<LaptopMinimal/></span>
                         </Link>
                     </NavbarItem>
                 </NavbarContent>
