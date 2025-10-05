@@ -1,7 +1,7 @@
-export default function HomePage() {
+export default function OurPage() {
     return (
         <div className="text-center ">
-            Home!
+            Our!
         </div>
     );
 }
