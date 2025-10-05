@@ -16,14 +16,14 @@ const MurikiLogo = () => {
 
 export function Navigation() {
     return (
-        <Navbar shouldHideOnScroll>
+        <Navbar shouldHideOnScroll className="flex justify-between">
             <NavbarBrand>
                 <MurikiLogo/>
                 <p className="font-bold text-inherit">MURIKI</p>
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarItem>
-                    <Link color="foreground" className="flex items-center gap-1" href="#">
+                    <Link color="foreground" className="flex items-center gap-1" href="/our">
                         О нас <BookOpen/>
                     </Link>
                 </NavbarItem>
