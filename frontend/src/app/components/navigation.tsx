@@ -1,5 +1,6 @@
-import {Button, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@heroui/react";
-import {BookOpen, Cat, ContactRound, LaptopMinimal} from "lucide-react"
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@heroui/react";
+import {BookOpen, BookCheck, Cat, ContactRound, LaptopMinimal} from "lucide-react"
+import SignIn from "@/app/components/sign-in";
 
 const MurikiLogo = () => {
     return (
@@ -16,12 +17,17 @@ const MurikiLogo = () => {
 
 export function Navigation() {
     return (
-        <Navbar shouldHideOnScroll className="flex justify-between">
+        <Navbar shouldHideOnScroll className="flex justify-between px-1">
             <NavbarBrand>
                 <MurikiLogo/>
                 <p className="font-bold text-inherit">MURIKI</p>
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                <NavbarItem>
+                    <Link color="foreground" className="flex items-center gap-1" href="/home">
+                        Главная <BookCheck/>
+                    </Link>
+                </NavbarItem>
                 <NavbarItem>
                     <Link color="foreground" className="flex items-center gap-1" href="/our">
                         О нас <BookOpen/>
@@ -45,13 +51,8 @@ export function Navigation() {
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
-                <NavbarItem className="hidden lg:flex">
-                    <Link href="#">Login</Link>
-                </NavbarItem>
                 <NavbarItem>
-                    <Button as={Link} color="primary" href="#" variant="flat">
-                        Sign Up
-                    </Button>
+                    {SignIn()}
                 </NavbarItem>
             </NavbarContent>
         </Navbar>

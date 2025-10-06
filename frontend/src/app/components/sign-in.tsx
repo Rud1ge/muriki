@@ -1,4 +1,5 @@
 import {signIn} from "@/auth"
+import {LogIn} from "lucide-react"
 
 export default function SignIn() {
     return (
@@ -8,7 +9,7 @@ export default function SignIn() {
                 await signIn("authentik")
             }}
         >
-            <button type="submit">Signin with Authentik</button>
+            <button type="submit" className="flex items-center gap-1 cursor-pointer">Авторизация <LogIn/></button>
         </form>
     )
 }
