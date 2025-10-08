@@ -50,9 +50,9 @@ export function Navigation() {
           <Link
             color="foreground"
             className="flex items-center gap-1"
-            href="/our"
+            href="/news"
           >
-            О нас <BookOpen />
+            Новости <BookOpen />
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
