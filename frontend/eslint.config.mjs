@@ -19,7 +19,6 @@ const eslintConfig = [
     },
     rules: {
       "prettier/prettier": "error",
-      "linebreak-style": ["error", "windows"],
     },
   },
   prettierConfig,
