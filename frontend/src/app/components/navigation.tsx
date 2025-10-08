@@ -1,5 +1,7 @@
+"use client";
+
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@heroui/react";
-import {BookOpen, BookCheck, Cat, ContactRound, LaptopMinimal} from "lucide-react"
+import {BookOpen, BookCheck, Cat, ContactRound, LaptopMinimal} from "lucide-react";
 import SignIn from "@/app/components/sign-in";
 
 const MurikiLogo = () => {
@@ -52,7 +54,7 @@ export function Navigation() {
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem>
-                    {SignIn()}
+                    <SignIn />
                 </NavbarItem>
             </NavbarContent>
         </Navbar>

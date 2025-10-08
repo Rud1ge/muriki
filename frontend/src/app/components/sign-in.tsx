@@ -1,15 +1,29 @@
-import {signIn} from "@/auth"
-import {LogIn} from "lucide-react"
+"use client";
+
+import {useState} from "react";
+import {signIn} from "next-auth/react";
+import {LogIn} from "lucide-react";
 
 export default function SignIn() {
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSignIn = async () => {
+        try {
+            setIsLoading(true);
+            await signIn("authentik");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
-        <form
-            action={async () => {
-                "use server"
-                await signIn("authentik")
-            }}
+        <button
+            type="button"
+            className="flex items-center gap-1 cursor-pointer disabled:opacity-60"
+            onClick={handleSignIn}
+            disabled={isLoading}
         >
-            <button type="submit" className="flex items-center gap-1 cursor-pointer">Авторизация <LogIn/></button>
-        </form>
-    )
+            {isLoading ? "Вход..." : "Авторизация"} <LogIn className="size-4"/>
+        </button>
+    );
 }
