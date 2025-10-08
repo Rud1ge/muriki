@@ -1,0 +1,27 @@
+stages:
+  - lint
+  - build
+
+default:
+  image: node:20
+  cache:
+    key: "npm-${CI_COMMIT_REF_SLUG}"
+    paths:
+      - .npm/
+      - frontend/node_modules/
+  before_script:
+    - cd frontend
+    - export NPM_CONFIG_CACHE="../.npm"
+    - npm ci
+
+lint:
+  stage: lint
+  script:
+    - npx eslint .
+
+build:
+  stage: build
+  script:
+    - npm run build
+  needs:
+    - lint
