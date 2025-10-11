@@ -72,7 +72,14 @@ export function Cards() {
                 {news.Title}
               </Link>
               <small className="text-muted-foreground mt-1">
-                {news.published_at}
+                {new Date(news.published_at).toLocaleString("ru-RU", {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                })}
               </small>
               <p className="text-base text-default-700 mt-2">
                 {news.Description}
