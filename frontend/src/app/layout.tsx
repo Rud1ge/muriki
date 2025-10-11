@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { HeroUIProvider } from "@heroui/react";
+import { Providers } from "@/app/providers";
 import NavBar from "@/app/components/nav-bar";
 
 const geistSans = Geist({
@@ -25,13 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <HeroUIProvider>
-      <html lang="ru">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="ru">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Providers>
           <NavBar />
           {children}
-        </body>
-      </html>
-    </HeroUIProvider>
+        </Providers>
+      </body>
+    </html>
   );
 }
