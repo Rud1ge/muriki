@@ -66,7 +66,7 @@ export function Cards() {
           <Card className="w-full shadow-none bg-transparent">
             <CardHeader className="pb-3 flex-col items-start">
               <Link
-                href={`/articles/${news.id}`}
+                href={`/news/${news.Slug}`}
                 className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
               >
                 {news.Title}
@@ -88,7 +88,7 @@ export function Cards() {
 
             <CardBody className="p-0 mt-3 overflow-hidden">
               {news.Media?.[0]?.url && (
-                <Link href={`/articles/${news.id}`} className="block w-full">
+                <Link href={`/news/${news.Slug}`} className="block w-full">
                   <Image
                     alt={news.Title}
                     src={`${STRAPI_BASE_URL}${news.Media[0].url}`}
