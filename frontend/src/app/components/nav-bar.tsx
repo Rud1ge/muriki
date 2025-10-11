@@ -1,8 +1,9 @@
 "use client";
 
 import type { NavbarProps } from "@heroui/react";
+import { useCallback, useState } from "react";
+import { signIn } from "next-auth/react";
 
-import React from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -29,6 +30,16 @@ const menuItems = [
 ];
 
 export default function NavBar(props: NavbarProps) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSignIn = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      await signIn("authentik");
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
   return (
     <Navbar
       {...props}
@@ -61,8 +72,8 @@ export default function NavBar(props: NavbarProps) {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className="text-default-500" href="#" size="sm">
-            Features
+          <Link className="text-default-500" href="/news" size="sm">
+            Новости
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
@@ -81,7 +92,12 @@ export default function NavBar(props: NavbarProps) {
           </Link>
         </NavbarItem>
         <NavbarItem className="ml-2 !flex">
-          <Button radius="full" variant="flat">
+          <Button
+            radius="full"
+            variant="flat"
+            isLoading={isLoading}
+            onPress={handleSignIn}
+          >
             Login
           </Button>
         </NavbarItem>

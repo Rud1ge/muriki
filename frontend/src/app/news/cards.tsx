@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Card, CardHeader, CardBody, Image, Spinner } from "@heroui/react";
-import type { NewsItem } from "@/types/news";
+import type { NewsItem } from "@/app/news/types";
 
-const STRAPI_BASE_URL =
-  process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
+const STRAPI_BASE_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 export function Cards() {
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
@@ -18,6 +17,7 @@ export function Cards() {
         const response = await fetch(`${STRAPI_BASE_URL}/articles`, {
           cache: "default",
         });
+
         if (!response.ok) {
           console.error(
             "Ошибка при запросе:",
@@ -26,6 +26,7 @@ export function Cards() {
           );
           return;
         }
+
         const data: NewsItem[] = await response.json();
         setNewsList(data);
       } catch (error) {
@@ -34,14 +35,18 @@ export function Cards() {
         setLoading(false);
       }
     }
+
     void loadNews();
   }, []);
 
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen text-lg">
-        Загрузка новостей...
-        <Spinner />
+        <Spinner
+          classNames={{ label: "text-foreground mt-4" }}
+          label="Загрузка новостей..."
+          variant="default"
+        />
       </div>
     );
   }
@@ -74,9 +79,9 @@ export function Cards() {
               </p>
             </CardHeader>
 
-            <CardBody className="p-0 mt-3">
+            <CardBody className="p-0 mt-3 overflow-hidden">
               {news.Media?.[0]?.url && (
-                <Link href={`/news/${news.Slug}`} className="block w-full">
+                <Link href={`/articles/${news.id}`} className="block w-full">
                   <Image
                     alt={news.Title}
                     src={`${STRAPI_BASE_URL}${news.Media[0].url}`}
