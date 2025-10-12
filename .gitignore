@@ -205,3 +205,17 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Authentik
+#  Local Authentik data, media, certificates, and templates.
+#  Contains sensitive information and should not be tracked.
+media/
+certs/
+custom-templates/
+
+# Strapi
+#  Strapi CMS source, database, and uploaded media files.
+#  These contain user content and should stay local.
+strapi-app/
+strapi-data/
+strapi-uploads/

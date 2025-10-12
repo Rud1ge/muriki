@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { auth } from "@/auth";
 
-const protectedRoutes = ["/our"];
+const protectedRoutes = ["/news"];
 
 export const middleware = auth((req) => {
   const { pathname, origin } = req.nextUrl;
