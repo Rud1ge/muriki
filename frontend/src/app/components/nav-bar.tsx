@@ -71,24 +71,28 @@ export default function NavBar(props: NavbarProps) {
             Главная
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="hidden md:flex">
           <Link className="text-default-500" href="/news" size="sm">
             Новости
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link aria-current="page" color="foreground" href="#" size="sm">
-            Customers
+        <NavbarItem className="hidden md:flex">
+          <Link className="text-default-500" href="#" size="sm">
+            События
+          </Link>
+        </NavbarItem>
+        <NavbarItem className="hidden md:flex">
+          <Link className="text-default-500" href="#" size="sm">
+            О нас
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className="text-default-500" href="#" size="sm">
-            About Us
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-default-500" href="#" size="sm">
-            Integrations
+          <Link
+            className="text-default-500"
+            href="https://github.com/Rud1ge/muriki"
+            size="sm"
+          >
+            Разработка
           </Link>
         </NavbarItem>
         <NavbarItem className="ml-2 !flex">
@@ -98,7 +102,7 @@ export default function NavBar(props: NavbarProps) {
             isLoading={isLoading}
             onPress={handleSignIn}
           >
-            Login
+            Войти
           </Button>
         </NavbarItem>
       </NavbarContent>
