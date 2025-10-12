@@ -88,11 +88,14 @@ export function Cards() {
 
             <CardBody className="p-0 mt-3 overflow-hidden">
               {news.Media?.[0]?.url && (
-                <Link href={`/news/${news.Slug}`} className="block w-full">
+                <Link
+                  href={`/news/${news.Slug}`}
+                  className="block w-full overflow-hidden rounded-xl"
+                >
                   <Image
                     alt={news.Title}
                     src={`${STRAPI_BASE_URL}${news.Media[0].url}`}
-                    className="rounded-xl w-full h-auto object-contain transition-transform duration-300 hover:scale-[1.01]"
+                    className="w-full h-auto object-contain transition-transform duration-300 hover:scale-[1.01]"
                     removeWrapper
                   />
                 </Link>
